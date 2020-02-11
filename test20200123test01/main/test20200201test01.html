@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            div{width:300px;height: 300px;background-color: gray;line-height: 300px;text-align: center;margin: 20px;padding: 100px;}
+            div span{width: 100px;height: 100px;background-color: white;display: inline-block;}
+        </style>
+        <script>
+            window.onload=function(){
+                var oDivs = document.getElementsByTagName("div")
+
+                var i = 0;
+                oDivs[0].onmouseout = function(){
+                    var oSpan = this.getElementsByTagName("span")[0];
+                    oSpan.innerHTML=i++;
+                }
+
+                var j = 0;
+                oDivs[1].onmouseleave = function(){
+                    var oSpan = this.getElementsByTagName("span")[0];
+                    oSpan.innerHTML=j++;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <span>mouseout</span>
+        </div>
+        <div>
+            <span>mouseleave</span>
+        </div>
+    </body>
+</html>

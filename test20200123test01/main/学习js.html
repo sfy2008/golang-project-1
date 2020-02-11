@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #div1{width:200px;height: 200px;background-color:lightblue;border: 1px solid black;text-align: center;}
+        #div1 input{width: 200px;height: 30px;font-size: 18px;margin-top: 10px;}
+        #div1 span{font-size: 16px;color:red;}
+       
+       
+    </style>   
+    <script>
+        function func(){
+            var oUsername= document.getElementById("username");
+            var oUsernameSpan=document.getElementById("username_span");
+
+            var oValue = oUsername.value;
+
+            if (oValue.length<6 || oValue.length >18){
+                oUsernameSpan.innerHTML = "！长度应该为6-18字符";
+            }else if(!isABC(oValue[0])){
+                oUsernameSpan.innerHTML="首字母必须是英文字母";
+            }else{
+                var isYes = true;
+                for(var i=0;i<oValue.length;i++){
+                    if(!isDEF(oValue[i])){
+                        isYes=false;
+                        break;
+                    }
+                }
+                if(isYes){
+                    oUsernameSpan.innerHTML="✅";
+                }else{
+                    oUsernameSpan.innerHTML = "!邮件地址需由字母、数字或下划线组成";
+                }
+            }
+
+        }
+        
+        function isABC(charStr){
+            if(charStr >="a" && charStr <="z" || charStr >="A" && charStr <="Z" ){
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+        function isDEF(charStr){
+            if(charStr >="a" && charStr <="z" || charStr >="A" && charStr <="Z" || charStr >="0" && charStr <="9"){
+                return true;
+            }else {
+                return false;
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <input type="text" id="username" placeholder="用户名" onblur="func();"/>
+        <span id="username_span">6-18个字符，可以使用字母、数字、下划线，需要以字母开头</span>
+        <input type="text" placeholder="密码" />
+    </div>
+    
+</body>
+
+</html>
